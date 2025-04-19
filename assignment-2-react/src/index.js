@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'; // Optional: You can add a CSS file to style the app
+import './index.css';
 import App from './App';
 
-// Render the root component inside the div with id="root"
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
