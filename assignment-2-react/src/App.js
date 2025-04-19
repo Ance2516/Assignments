@@ -1,7 +1,7 @@
 // src/App.js
 
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import HomePage from './HomePage';
 
@@ -11,14 +11,10 @@ function App() {
   return (
     <Router>
       <div>
-        <Switch>
-          <Route exact path="/">
-            <LoginPage setUserName={setUserName} />
-          </Route>
-          <Route path="/home">
-            <HomePage userName={userName} />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<LoginPage setUserName={setUserName} />} />
+          <Route path="/home" element={<HomePage userName={userName} />} />
+        </Routes>
       </div>
     </Router>
   );
