@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './index';
 
 function LoginPage({ setUserName }) {
-  const [username, setUsername] = useState(''); 
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -10,7 +11,7 @@ function LoginPage({ setUserName }) {
     e.preventDefault();
 
     const payload = {
-      userName: username, 
+      userName: username,
       password: password,
     };
 
@@ -30,15 +31,15 @@ function LoginPage({ setUserName }) {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleLogin}>
+        <h2>Login</h2>
         <div>
           <label>User Name:</label>
           <input
             type="text"
             value={username}
-            onChange={(e) => setUsername(e.target.value)} 
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
@@ -51,7 +52,7 @@ function LoginPage({ setUserName }) {
             required
           />
         </div>
-        {error && <div>{error}</div>}
+        {error && <div className="error-message">{error}</div>}
         <button type="submit">Login</button>
       </form>
     </div>
