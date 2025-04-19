@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function LoginPage({ setUserName }) {
-  const [username, setUsername] = useState(''); // Renamed local state to 'username' and setter to 'setUsername'
+  const [username, setUsername] = useState(''); 
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -10,7 +10,7 @@ function LoginPage({ setUserName }) {
     e.preventDefault();
 
     const payload = {
-      userName: username, // Use the local 'username' state here
+      userName: username, 
       password: password,
     };
 
@@ -21,8 +21,7 @@ function LoginPage({ setUserName }) {
       );
 
       if (response.data) {
-        setUserName(username); // Use the local 'username' to update the parent's state
-        // Redirect to HomePage (you can use routing here, or just set it to show home)
+        setUserName(username);
         window.location.href = '/home';
       }
     } catch (err) {
@@ -38,8 +37,8 @@ function LoginPage({ setUserName }) {
           <label>User Name:</label>
           <input
             type="text"
-            value={username} // Use the local 'username' state here
-            onChange={(e) => setUsername(e.target.value)} // Use the local 'setUsername' setter
+            value={username}
+            onChange={(e) => setUsername(e.target.value)} 
             required
           />
         </div>
